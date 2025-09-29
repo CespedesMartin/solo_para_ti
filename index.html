@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Este espacio es para ti</title>
+  <link rel="stylesheet" href="vistas.css">
+</head>
+<body>
+  <!-- LOGIN -->
+  <div id="login-screen" class="screen">
+    <h1>💌Una pequeña sopresa para ti🌸</h1>
+    <p>Ingresa la clave para abrir:</p>
+    <input id="initial" type="text" placeholder="Clave">
+    <button id="login-btn">Abrir</button>
+    <p id="error" class="error"></p>
+  </div>
+
+  <!-- CONTENIDO -->
+  <div id="main-content" class="hidden">
+    <!-- Inicio -->
+    <div id="start-screen" class="screen">
+      <h1>Bienvenida Beatriz 🌸</h1>
+      <button id="open-btn">ABRIR SORPRESA 🎁</button>
+    </div>
+
+    <!-- Sorpresa -->
+    <div id="surprise-screen" class="hidden">
+      <canvas id="bubbles"></canvas>
+
+      <h2 class="intro-text">Desde aquel día que te vi...</h2>
+
+      <!-- Música -->
+      <div id="music-container" class="hidden">
+        <iframe id="yt-player" width="0" height="0"
+          src="https://www.youtube.com/embed/1H6rHMWwCSA?enablejsapi=1&loop=1&playlist=1H6rHMWwCSA"
+          frameborder="0" allow="autoplay; encrypted-media"></iframe>
+      </div>
+      <button id="music-btn">🎶 Escuchar canción</button>
+
+      <!-- OPCIONES -->
+      <div id="options" class="options-grid">
+        <button class="option-btn" data-option="1">📅 23 de agosto 2025</button>
+        <button class="option-btn" data-option="2">✨ Una casualidad</button>
+        <button class="option-btn" data-option="3">💫 Un inicio pequeño</button>
+        <button class="option-btn" data-option="4">🌸 Una sonrisa</button>
+      </div>
+
+      <!-- MODALES -->
+      <div class="modal hidden" id="modal-1">
+        <div class="modal-content">
+          <p>📅 El 23 de agosto de 2025, un día que nunca olvidare,
+            fue en ese dia en que te vi por primera vez.
+            Desde aquel día, tu esencia quedó grabada en mi mente. 
+            Aunque respeto tu relación y no quiero apresurarte,
+            Quiero conocerte de verdad y demostrar que puedo hacerte feliz, con paciencia y respeto.</p>
+          <button class="close-modal">Cerrar</button>
+        </div>
+      </div>
+
+      <div class="modal hidden" id="modal-2">
+        <div class="modal-content">
+          <p>✨ Quizás el destino tenía un plan.
+            Pero no busco que cambies nada de inmediato; 
+            solo deseo que me conozcas, que descubras lo que puedo ofrecerte
+            y que algún día, si así lo decides, podamos caminar juntos.
+            Por ahora, mis sentimientos son contigo con respeto y paciencia.</p>
+          <button class="close-modal">Cerrar</button>
+        </div>
+      </div>
+
+      <div class="modal hidden" id="modal-3">
+        <div class="modal-content">
+          <p>💫 Y sin darme cuenta se volvió especial.
+             No quiero interferir en tu vida ni apresurarte,
+             solo quiero que sepas que mi corazón puede estar ahí para ti, 
+             de manera respetuosa y paciente. 
+             Cada pequeño detalle que te dedico es para que veas que alguien puede admirarte y cuidarte sin lastimarte.</p>
+          <button class="close-modal">Cerrar</button>
+        </div>
+      </div>
+
+      <div class="modal hidden" id="modal-4">
+        <div class="modal-content">
+          <p>🌸 Una sonrisa tuya es la que cambia todo 
+            y esa sonrisa me inspiro para dedicarte este detalle.</p>
+          <button class="close-modal">Cerrar</button>
+        </div>
+      </div>
+
+      <!-- 🎮 Juego del corazón -->
+      <div class="modal hidden" id="modal-final">
+        <div class="modal-content">
+          <h3>💖 Atrapa el corazón 💖</h3>
+          <div id="game" class="heart-container">
+            <div id="heart" class="heart">💖</div>
+          </div>
+          <p id="final-msg"></p>
+          <button id="final-close" class="close-modal">Cerrar</button>
+        </div>
+      </div>
+
+
+      <!-- Botón sorpresa (aparece al ver todas las opciones) -->
+      <div class="center-row">
+        <button id="final-btn" class="hidden">✨ Ver sorpresa final ✨</button>
+      </div>
+
+      <!-- Pantalla sorpresa final -->
+      <div id="final-screen" class="hidden screen">       
+      </div>
+      <button onclick="goToStart()">🎁VOLVER ABRIR SORPRESA</button>
+    </div>
+  </div>
+
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="vistas.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+/* base */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: hidden;
+  color: #ffffff;
+}
+
+.screen { padding: 2rem; }
+.hidden { display: none; }
+
+h1,h2,h3 { color: #fff; text-shadow: 2px 2px 6px rgba(0,0,0,0.25); }
+.intro-text { font-size: 1.4rem; margin: 1rem 0; color: #fff; }
+
+/* buttons */
+button {
+  background: #ff6b81;
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform .18s ease, background .18s;
+}
+button:hover { transform: translateY(-3px); background:#ff4757; }
+
+/* inputs */
+input { padding: .5rem; border-radius: 8px; border: 1px solid #ccc; margin: .5rem; }
+
+/* error */
+.error { color: #fff3; color: yellow; font-weight: 700; }
+
+/* canvas burbujas */
+#bubbles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
+
+/* grid de opciones */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  max-width: 560px;
+  margin: 1rem auto;
+}
+
+.option-btn {
+  background: rgb(33 253 255 / 36%);
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 1rem;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: transform .2s ease, background .2s;
+}
+.option-btn:hover { transform: scale(1.03); background: rgba(255,255,255,0.12); }
+
+/* pantalla individual */
+.option-screen {
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 480px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  color: #fff;
+}
+
+/* heart game */
+.heart-container {
+  position: relative;
+  width: 280px; height: 220px;
+  margin: 12px auto;
+  border-radius: 12px;
+  border: 2px dashed rgba(255,255,255,0.2);
+}
+#heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 48px;
+  cursor: pointer;
+  transition: left .2s ease, top .2s ease;
+}
+
+.center-row { margin-top: 12px; }
+
+/* responsive */
+@media (max-width:520px) {
+  .options-grid { grid-template-columns: 1fr; padding: 0 12px; }
+  .heart-container { width: 220px; height: 180px; }
+  #heart { font-size: 42px; }
+}
+/* MODALES */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff0f5;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 90%;
+}
+
+.close-modal {
+  margin-top: 1rem;
+  background: #ff6b81;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  background: #ff4757;
+}
+/* Fondo del overlay */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6); /* overlay oscuro */
+  z-index: 1000;
+}
+
+/* Ocultar por defecto */
+.modal.hidden {
+  display: none;
+}
+
+/* Caja del modal */
+.modal-content {
+  background: #fff; /* fondo blanco limpio */
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animación suave al aparecer */
+@keyframes fadeIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* Botón cerrar */
+.close-modal {
+  margin-top: 1rem;
+  background: #ff6b81;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.close-modal:hover {
+  background: #ff4757;
+}
+/* Modal general */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1000;
+}
+
+/* Caja */
+.modal-content {
+  background: #ff4bc959;
+  padding: 1.5rem;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%; /* Se adapta en móvil */
+  box-shadow: 0 8px 25px rgb(209 103 159);
+  animation: fadeIn 0.3s ease;
+  font-size: 1rem;
+}
+
+/* Texto final */
+#final-msg {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  line-height: 1.4;
+}
+
+/* Botón cerrar */
+.close-modal {
+  margin-top: 1.5rem;
+  background: #ff6b81;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.close-modal:hover {
+  background: #ff4757;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.heart-container {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 350px;
+  margin: 1rem auto;
+  border: 2px dashed #ff80ab;
+  border-radius: 12px;
+  background: #fffafc;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  font-size: 2.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+/* Contenedor del juego */
+.heart-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 320px;
+  margin: 1rem auto;
+  border: 2px dashed #ff80ab;
+  border-radius: 12px;
+  background: #fff0f6;
+  overflow: hidden;
+}
+
+/* Corazón */
+.heart {
+  position: absolute;
+  font-size: 2.5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+
+
+/* ----------------- MODAL ----------------- */
+#modal-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+}
+#modal-content {
+  width: min(92vw, 520px);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 14px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  animation: modalIn .2s ease;
+}
+#modal-body { max-height: 70vh; overflow: auto; }
+#modal-close-btn { margin-top: 10px; }
+@keyframes modalIn { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: translateY(0);} }
